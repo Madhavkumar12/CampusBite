@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: campusbite_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=sqlite:///./campusbite.db
+      - SECRET_KEY=campusbite_super_secret_key_123
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
